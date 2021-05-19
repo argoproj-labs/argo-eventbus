@@ -1,0 +1,16 @@
+#
+# Update the versions in this file.
+#
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - crds
+  - argo-eventbus-sa.yaml
+  - eventbus-controller
+
+images:
+  - name: quay.io/argoproj/argo-eventbus
+    newTag: latest
+

@@ -55,8 +55,7 @@ require (
 	github.com/emicklei/go-restful v2.12.0+incompatible // indirect
 	github.com/fatih/color v1.9.0 // indirect
 	github.com/ghodss/yaml v1.0.1-0.20190212211648-25d852aebe32 // indirect
-	github.com/go-logr/logr v0.3.0 // indirect
-	github.com/go-openapi/spec v0.20.2 // indirect
+	github.com/go-openapi/spec v0.20.2
 	github.com/go-swagger/go-swagger v0.25.0
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.4.3 // indirect
@@ -67,20 +66,22 @@ require (
 	github.com/jessevdk/go-flags v1.5.0 // indirect
 	github.com/mattn/go-colorable v0.1.6 // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
-	github.com/onsi/ginkgo v1.14.1 // indirect
-	github.com/onsi/gomega v1.10.2 // indirect
+	github.com/pkg/errors v0.9.1
 	github.com/smartystreets/assertions v0.0.0-20190401211740-f487f9de1cd3 // indirect
+	github.com/stretchr/testify v1.6.1
 	github.com/tidwall/pretty v1.1.0 // indirect
+	go.uber.org/zap v1.16.0
 	golang.org/x/mod v0.3.1-0.20200828183125-ce943fd02449 // indirect
 	golang.org/x/net v0.0.0-20210326060303-6b1517762897 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	k8s.io/api v0.19.6
-	k8s.io/apiextensions-apiserver v0.19.2 // indirect
 	k8s.io/apimachinery v0.19.6
+	k8s.io/client-go v0.19.6
 	k8s.io/code-generator v0.19.6
 	k8s.io/gengo v0.0.0-20200428234225-8167cfdcfc14
 	k8s.io/klog v0.3.0 // indirect
 	k8s.io/kube-openapi v0.0.0-20200805222855-6aeccd4b50c6
-	k8s.io/utils v0.0.0-20200912215256-4140de9c8800 // indirect
+	sigs.k8s.io/controller-runtime v0.7.0
 	sigs.k8s.io/controller-tools v0.4.1
+	sigs.k8s.io/yaml v1.2.0
 )
