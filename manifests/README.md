@@ -19,5 +19,6 @@ make manifests
 
 ## Kustomize
 
-You can use `./cluster-install` as Kustomize remote base, or use `./base` as the
-remote base and give a namespace you desired in your kustomization.yaml.
+You can use `./cluster-install` as Kustomize remote base. If you want to install
+in a different namespace use `./base` as the remote base and give a namespace
+you desired in your kustomization.yaml.
