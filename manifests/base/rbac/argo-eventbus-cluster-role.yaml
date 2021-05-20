@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: argo-events-role
+  name: argo-eventbus-role
 rules:
   - apiGroups:
       - argoproj.io
@@ -15,12 +15,6 @@ rules:
       - update
       - watch
     resources:
-      - sensors
-      - sensors/finalizers
-      - sensors/status
-      - eventsources
-      - eventsources/finalizers
-      - eventsources/status
       - eventbus
       - eventbus/finalizers
       - eventbus/status
@@ -44,7 +38,6 @@ rules:
   - apiGroups:
       - apps
     resources:
-      - deployments
       - statefulsets
     verbs:
       - create

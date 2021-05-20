@@ -12,7 +12,7 @@ spec:
       labels:
         app: eventbus-controller
     spec:
-      serviceAccountName: argo-events-sa
+      serviceAccountName: argo-eventbus-sa
       securityContext:
         runAsNonRoot: true
         runAsUser: 9731

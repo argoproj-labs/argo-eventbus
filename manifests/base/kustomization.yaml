@@ -8,6 +8,7 @@ kind: Kustomization
 resources:
   - crds
   - argo-eventbus-sa.yaml
+  - rbac
   - eventbus-controller
 
 images:

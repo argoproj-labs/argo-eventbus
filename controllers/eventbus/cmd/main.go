@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"os"
 	"reflect"
 
@@ -27,17 +26,6 @@ const (
 	natsMetricsExporterEnvVar = "NATS_METRICS_EXPORTER_IMAGE"
 )
 
-var (
-	namespaced       bool
-	managedNamespace string
-)
-
-func init() {
-	flag.BoolVar(&namespaced, "namespaced", false, "run the controller as namespaced mode")
-	flag.StringVar(&managedNamespace, "managed-namespace", os.Getenv("NAMESPACE"), "namespace that controller watches, default to the installation namespace")
-	flag.Parse()
-}
-
 func main() {
 	logConfig := zap.NewProductionConfig()
 	logConfig.OutputPaths = []string{"stdout"}
@@ -57,9 +45,6 @@ func main() {
 	opts := ctrl.Options{
 		MetricsBindAddress:     ":7777",
 		HealthProbeBindAddress: ":8081",
-	}
-	if namespaced {
-		opts.Namespace = managedNamespace
 	}
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), opts)
 	if err != nil {
