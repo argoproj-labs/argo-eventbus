@@ -26,7 +26,7 @@ kubectl apply -f https://raw.githubusercontent.com/argoproj-labs/argo-eventbus/s
 You can create a `native` EventBus, or connect to an existing NATS Streaming
 service with `exotic` EventBus.
 
-## Native
+### Native
 
 A simplest `native` NATS EventBus example:
 
