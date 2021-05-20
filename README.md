@@ -7,13 +7,13 @@ used to create
 is not intended to compete with
 [NATS Streaming Operator](https://github.com/nats-io/nats-streaming-operator),
 but just acts as a shared module for Argo projects who want to use NATS
-Streaming as an message transmission service.
+Streaming as a message transmission service.
 
 ## Controller Installation
 
 Run following command to install Argo EventBus controller in the namespace
 `argo-eventbus`, if you wish to install it in a different namespace, please
-check the detail at [manifests](manifests/README.md).
+check the detail [here](manifests/README.md).
 
 ```sh
 kubectl create ns argo-eventbus
