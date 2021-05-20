@@ -2,18 +2,18 @@
 
 Argo EventBus is a
 [Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-used to create
+controller used to create
 [NATS Streaming](https://github.com/nats-io/nats-streaming-server) clusters. It
 is not intended to compete with
 [NATS Streaming Operator](https://github.com/nats-io/nats-streaming-operator),
-but just acts as a shared module for Argo projects who want to use NATS
-Streaming as a message transmission service.
+but provides an easy way for Argo projects who want to use NATS Streaming as a
+message transmission middleware.
 
 ## Controller Installation
 
 Run following command to install Argo EventBus controller in the namespace
 `argo-eventbus`, if you wish to install it in a different namespace, please
-check the detail [here](manifests/README.md).
+check [here](manifests/README.md) to see how to do it.
 
 ```sh
 kubectl create ns argo-eventbus
@@ -181,9 +181,10 @@ spec:
         key: secret-key
 ```
 
-## More Information
+## Connect To The EventBus
 
-- To view a finalized EventBus config:
+Access information to a NATS Streaming EventBus can be found by running below
+command:
 
 ```sh
 kubectl get eventbus default  -o json | jq '.status.config'
@@ -204,3 +205,12 @@ A sample result:
   }
 }
 ```
+
+The access token in the secret has a format like below:
+
+```yaml
+token: "FcGYEn234nzHJ9BNfot8bf95N6fRx08jeXutxfFHMyvLyFJfnzxM4qVxoN1hDBJt"
+```
+
+Then you can use a NATS client with your preferred language to access the
+cluster.
