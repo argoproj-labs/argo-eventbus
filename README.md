@@ -2,10 +2,9 @@
 
 Argo EventBus is a
 [Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)
-used to created
-[NATS Streaming](https://github.com/nats-io/nats-streaming-server) clusters.
-
-Argo EventBus is not intended to compete with
+used to create
+[NATS Streaming](https://github.com/nats-io/nats-streaming-server) clusters. It
+is not intended to compete with
 [NATS Streaming Operator](https://github.com/nats-io/nats-streaming-operator),
 but just acts as a shared module for Argo projects who want to use NATS
 Streaming as an message transmission service.
