@@ -6,11 +6,22 @@ used to created
 [NATS Streaming](https://github.com/nats-io/nats-streaming-server) clusters.
 
 Argo EventBus is not intended to compete with
-[NATS Streaming Operstor](https://github.com/nats-io/nats-streaming-operator),
-but just want to act as a shared module for Argo projects who want to use NATS
-Streaming service as an message transmission service.
+[NATS Streaming Operator](https://github.com/nats-io/nats-streaming-operator),
+but just acts as a shared module for Argo projects who want to use NATS
+Streaming as an message transmission service.
 
-## Specifications
+## Controller Installation
+
+Run following command to install Argo EventBus controller in the namespace
+`argo-eventbus`, if you wish to install it in a different namespace, please
+check the detail at [manifests](manifests/README.md).
+
+```sh
+kubectl create ns argo-eventbus
+kubectl apply -f https://raw.githubusercontent.com/argoproj-labs/argo-eventbus/stable/manifests/install.yaml
+```
+
+## How To Use EventBus
 
 You can create a `native` EventBus, or connect to an existing NATS Streaming
 service with `exotic` EventBus.
