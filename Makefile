@@ -125,10 +125,8 @@ check-version-warning:
 
 .PHONY: update-manifests-version
 update-manifests-version:
-	cat manifests/base/kustomization.yaml | sed 's/newTag: .*/newTag: $(VERSION)/' | sed 's@value: quay.io/argoproj/argo-events:.*@value: quay.io/argoproj/argo-events:$(VERSION)@' > /tmp/base_kustomization.yaml
+	cat manifests/base/kustomization.yaml | sed 's/newTag: .*/newTag: $(VERSION)/' | sed 's@value: quay.io/argoproj/argo-eventbus:.*@value: quay.io/argoproj/argo-eventbus:$(VERSION)@' > /tmp/base_kustomization.yaml
 	mv /tmp/base_kustomization.yaml manifests/base/kustomization.yaml
-	cat manifests/extensions/validating-webhook/kustomization.yaml | sed 's/newTag: .*/newTag: $(VERSION)/' > /tmp/wh_kustomization.yaml
-	mv /tmp/wh_kustomization.yaml manifests/extensions/validating-webhook/kustomization.yaml
 	cat Makefile | sed 's/^VERSION?=.*/VERSION?=$(VERSION)/' | sed 's/^BASE_VERSION:=.*/BASE_VERSION:=$(VERSION)/' > /tmp/ae_makefile
 	mv /tmp/ae_makefile Makefile
 
