@@ -181,7 +181,7 @@ spec:
         key: secret-key
 ```
 
-## Connect To The EventBus
+## Connect To An EventBus
 
 Access information to a NATS Streaming EventBus can be found by running below
 command:
