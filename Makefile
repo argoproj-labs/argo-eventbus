@@ -15,8 +15,8 @@ GIT_TREE_STATE=$(shell if [ -z "`git status --porcelain`" ]; then echo "clean" ;
 #  docker image publishing options
 DOCKER_PUSH?=false
 IMAGE_NAMESPACE?=quay.io/argoproj
-VERSION?=v0.1.0
-BASE_VERSION:=v0.1.0
+VERSION?=v0.1.1
+BASE_VERSION:=v0.1.1
 
 override LDFLAGS += \
   -X ${PACKAGE}.version=${VERSION} \
