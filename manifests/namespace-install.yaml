@@ -45,73 +45,10 @@ metadata:
   namespace: argo-eventbus
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  labels:
-    rbac.authorization.k8s.io/aggregate-to-admin: "true"
-  name: argo-eventbus-aggregate-to-admin
-rules:
-- apiGroups:
-  - argoproj.io
-  resources:
-  - eventbus
-  - eventbus/finalizers
-  - eventbus/status
-  verbs:
-  - create
-  - delete
-  - deletecollection
-  - get
-  - list
-  - patch
-  - update
-  - watch
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  labels:
-    rbac.authorization.k8s.io/aggregate-to-edit: "true"
-  name: argo-eventbus-aggregate-to-edit
-rules:
-- apiGroups:
-  - argoproj.io
-  resources:
-  - eventbus
-  - eventbus/finalizers
-  - eventbus/status
-  verbs:
-  - create
-  - delete
-  - deletecollection
-  - get
-  - list
-  - patch
-  - update
-  - watch
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  labels:
-    rbac.authorization.k8s.io/aggregate-to-view: "true"
-  name: argo-eventbus-aggregate-to-view
-rules:
-- apiGroups:
-  - argoproj.io
-  resources:
-  - eventbus
-  - eventbus/finalizers
-  - eventbus/status
-  verbs:
-  - get
-  - list
-  - watch
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
   name: argo-eventbus-role
+  namespace: argo-eventbus
 rules:
 - apiGroups:
   - argoproj.io
@@ -159,12 +96,13 @@ rules:
   - delete
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
-  name: argo-eventbus-binding
+  name: argo-eventbus-role-binding
+  namespace: argo-eventbus
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  kind: Role
   name: argo-eventbus-role
 subjects:
 - kind: ServiceAccount
@@ -187,7 +125,9 @@ spec:
         app: eventbus-controller
     spec:
       containers:
-      - env:
+      - args:
+        - --namespaced
+        env:
         - name: NAMESPACE
           valueFrom:
             fieldRef:

@@ -20,8 +20,6 @@ spec:
         - name: eventbus-controller
           image: quay.io/argoproj/argo-eventbus:latest
           imagePullPolicy: Always
-          args:
-            - eventbus-controller
           env:
             - name: NAMESPACE
               valueFrom:
