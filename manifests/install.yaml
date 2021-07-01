@@ -196,7 +196,7 @@ spec:
           value: nats-streaming:0.17.0
         - name: NATS_METRICS_EXPORTER_IMAGE
           value: synadia/prometheus-nats-exporter:0.6.2
-        image: quay.io/argoproj/argo-eventbus:v0.1.1
+        image: quay.io/argoproj/argo-eventbus:v0.1.2
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
