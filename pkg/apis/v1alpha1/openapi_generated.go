@@ -535,6 +535,20 @@ func schema_argo_eventbus_pkg_apis_v1alpha1_NativeStrategy(ref common.ReferenceC
 							Ref:         ref("k8s.io/api/core/v1.Affinity"),
 						},
 					},
+					"maxMsgs": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Maximum number of messages per channel, 0 means unlimited. Defaults to 1000000",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
+					"maxBytes": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Total size of messages per channel, 0 means unlimited. Defaults to 1GB",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
 			},
 		},
